@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML常用标签</title>
+    <style>
+        .code {
+            border: 2px solid gray;
+        }
+    </style>
+</head>
+<header>
+    <h1>HTML常用标签</h1>
+    <nav>
+        <ul>
+            <h2 id="content">目录：</h2>
+            <li><a href="#a">a标签的用法</a></li>
+            <li><a href="#img">img标签的用法</a></li>
+            <li><a href="#table">table标签的用法</a></li>
+        </ul>
+    </nav>
+</header>
+
+<body>
+    <section>
+        <h2 id="a">a标签的用法</h2>
+        通过&lt;a&gt;标签，用户点击相应文字后，浏览器会跳转到该文字指定的网址。
+        <p>
+            比如我通过下面的代码创建了一个连接到百度的超链接：
+        </p>
+        代码：
+        <p class="code">
+            &lt;a href=&quot;//baidu.com/&quot;&gt;&lt;/a&gt;
+        </p>
+        测试代码效果：
+        <p class="code">
+            <a href="//baidu.com" target="_blank">百度</a>
+        </p>
+        <p> 点击上面百度两个字后，就会新打开一个浏览器窗口，并跳转到百度。</p>
+        这就是最典型的链接。
+        <p>
+            <hr>
+        <p>
+            &lt;a&gt;标签内部，不仅可以放置文字，也可以放置其他元素，比如段落、图像、多媒体等等。
+        </p>
+        <p>
+            下面，是通过图片，链接到百度的代码。
+        </p>
+        <p class="code">
+            &lt;a href=&quot;//baidu.com&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;./images/baidulogo.png&quot;
+            alt=&quot;点击进入百度&quot; width=&quot;150px&quot;&gt;&lt;/a&gt;
+        </p>
+        测试代码效果：
+        <p class="code">
+            <a href="//baidu.com" target="_blank"><img src="./images/./images/baidulogo.png" alt="点击进入百度" width="150px"></a>
+
+        </p>
+        <p>
+            点击上面百度图标后，就会新打开一个浏览器窗口，并跳转到百度。
+        </p>
+        <hr>
+        <p>
+        <h3>&lt;a&gt;标签的的常用属性如下：</h3>
+        <ol>
+            <li>href</li>
+            <p>
+                href属性给出链接指向的网址。它的值应该是一个URL或者锚点。
+            </p>
+            <p>
+                href属性的值是#加上描点名称，点击后，浏览器会自动滚动到锚点所在位置。
+            </p>
+            跳转到锚点的代码：
+            <p class="code">
+                &lt;a href=&quot;#content&quot;&gt;点击我返回目录&lt;/a&gt;
+            </p>
+            测试代码效果：
+            <p class="code">
+                <a href="#content">点击我返回目录</a>
+            </p>
+            <li>title</li>
+            <p>
+                title属性给出链接的说明信息。鼠标悬停在链接上方时，浏览器会将这个属性的值，以提示块的形式显示出来。
+            </p>
+            代码：
+            <p class="code">
+                &lt;a href=&quot;&quot; title=&quot;我是在title属性中设置的&quot;&gt;把鼠标放在我上面试一试&lt;/a&gt;
+            </p>
+            测试代码效果：
+            <p class="code">
+                <a href="javascript:;" title="我是在title属性中设置的">把鼠标放在我上面试一试</a>
+            </p>
+            <li>target</li>
+            <p>
+                target属性指定如何展示打开的链接。它可以是在指定的窗口打开，也可以在&lt;iframe&gt;里面打开。
+            </p>
+            <p>
+                target属性的值也可以是以下四个关键字之一。
+            <ul>
+                <li>_self：当前窗口打开，这是默认值。</li>
+                <li>_blank：新窗口打开。</li>
+                <li>_parent：上层窗口打开，这通常用于从父窗口打开的子窗口，或者&lt;iframe&gt;里面的链接。如果当前窗口没有上层窗口，这个值等同于_self。</li>
+                <li>_top：顶层窗口打开。如果当前窗口就是顶层窗口，这个值等同于_self。</li>
+            </ul>
+            </p>
+            代码：
+            <p class="code">
+                &lt;a href=&quot;//baidu.com&quot;&gt;在本窗口打开百度&lt;/a&gt;
+            </p>
+            <p class="code">
+                &lt;a href=&quot;//baidu.com&quot; target=&quot;_blank&quot;&gt;在新窗口打开百度百度&lt;/a&gt;
+            </p>
+            测试代码效果：
+            <p class="code">
+                <a href="//baidu.com">在本窗口打开百度</a>
+            </p>
+            <p class="code">
+                <a href="//baidu.com" target="_blank">在新窗口打开百度百度</a>
+            </p>
+        </ol>
+        </p>
+        <p>
+            &lt;a&gt;标签，还有两个特殊的链接是邮件链接和电话链接。
+        </p>
+        <p>
+        <h3>邮件链接</h3>
+        <p>
+            链接可以指向一个邮件地址，当用户点击后，浏览器会打开本机默认的邮件程序，让用户向指定的地址发送邮件。
+        </p>
+        代码：
+        <p class="code">
+            &lt;a href=&quot;mailto:contact@example.com&quot;&gt;联系我们&lt;/a&gt;
+        </p>
+        代码效果：
+        <p class="code">
+            <a href="mailto:contact@example.com">联系我们</a>
+        </p>
+        <p>
+            点击“联系我们”，本机默认的邮件程序就会打开，而且收件人就是上面代码设定好的邮箱。
+        </p>
+        </p>
+        <p>
+        <h3>电话链接</h3>
+        <p>
+            链接可以指向一个电话号码，当用户点击后，浏览器会打开本机默认的呼叫程序，让用户向指定的号码拨打电话。如果是手机浏览页面，用户点击该链接，会唤起电话，可以进行拨号。
+        </p>
+        代码：
+        <p class="code">
+            &lt;a href=&quot;tel:13312345678&quot;&gt;13312345678&lt;/a&gt;
+        </p>
+        代码效果：
+        <p class="code">
+            <a href="tel:13312345678">13312345678</a>
+        </p>
+        <p>
+            点击上面的电话号码，手机或本机呼叫程序就会打开，可以直接拨打指定号码。
+        </p>
+        </p>
+
+    </section>
+    <section>
+        <h2 id="img">img标签的用法</h2>
+        &lt;img&gt;标签用于插入图片。他是单独使用的，没有闭合标签。
+        <p class="code">
+            <img src="./images/baidulogo.png" width="150px">
+        </p>
+        <p class="code">
+            &lt;img src=&quot;./images/baidulogo.png&quot; width=&quot;150px&quot;&gt;
+            &lt;img src=&quot;./images/./images/baidulogo.png&quot; width=&quot;150px&quot;&gt;
+        </p>
+        <p>
+            上面代码在网页插入一张图片"baidulogo.png",src表示source,src属性指定图片的网址，或者URL，上面代码的例子使用的是相对URL，表示图片与网页在同一个目录。
+        </p>
+        <h3>&lt;img&gt;标签的的常用属性如下：</h3>
+        <ol>
+            <li>alt属性</li>
+            <p>
+                alt属性用来设定图片的文字说明。当图片不显示时，图片的位置上会显示该文本。
+            </p>
+            代码：
+            <p class="code">
+                &lt;img src=&quot;./images/test.jpg&quot; alt=&quot;示例图片&quot;&gt;
+            </p>
+            代码效果：
+            <p class="code">
+                <img src="./images/test.jpg" alt="示例图片">
+            </p>
+            <p>
+                如上面的效果，因为test.jpg实际上并不存在，所以图片不会显示，这时候，图片就会显示出“示例图片”的文字说明。
+            </p>
+            <li>width属性，height属性</li>
+            <p>
+                图片默认以原始大小插入网页，width属性和height属性可以指定图片显示时的宽度和高度，单位是像素或百分比。
+            </p>
+            代码：
+            <p class="code">
+                &lt;img src=&quot;./images/baidulogo.png&quot; width=&quot;150&quot; height=&quot;150&quot;&gt;
+            </p>
+            代码效果：
+            <p class="code">
+                <img src="./images/baidulogo.png" width="150" height="150">
+            </p>
+            <p>
+                当图片的width属性和height属性被指定了的时候，图片就会按指定的值显示，可以看到，我们指定后的图标显得非常难看，因为比例是错误的，如果只指定一个属性，则另一个属性自动保持比例。
+            </p>
+
+            <p>
+                最后，我们看看如何设置图片响应式尺寸，即，图片会根据你的设备尺寸自适应显示尺寸。
+            </p>
+            代码：
+            <p class="code">
+                &lt;img src=&quot;./images/html.png&quot; style=&quot;max-width: 100%;&quot;&gt;
+            </p>
+            代码效果：
+            <p class="code">
+                <img src="./images/html.png" style="max-width: 100%;">
+            </p>
+            <p>
+                上图，通过max-width，设定了图片为按100%显示，因为图片比较大，所以在不同的设备上就会表现为自动匹配。
+            </p>
+        </ol>
+    </section>
+    <section>
+        <h2 id="table">table标签的用法</h2>
+        <p>
+            &lt;table&gt;是一个块级容器标签，所有表格内容都要放在这个标签里。
+        </p>
+        <p>
+            &lt;caption&gt;总是table里面的第一个子元素，表示表格的标题。该元素是可选的。
+        </p>
+        <p>
+            &lt;thead&gt;、&lt;tbody&gt;、&lt;tfoot&gt;都是块级容器元素，且都是&lt;table&gt;的一级子元素，分别表示表头、表体和表尾。
+        </p>
+        <p>
+            这三个元素都是可选的。
+        </p>
+        <p>
+            标签&lt;th&gt;、&lt;td&gt;、&lt;tr&gt;，分别表示标题、数据和表格的一行。
+        </p>
+        代码：
+        <pre>
+        <p class="code">
+            &lt;table&gt;
+                &lt;tr&gt;
+                    &lt;th&gt;学号&lt;/th&gt;&lt;th&gt;姓名&lt;/th&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;001&lt;/td&gt;&lt;td&gt;张三&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;002&lt;/td&gt;&lt;td&gt;李四&lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/table&gt;
+        </p>
+        </pre>
+        代码效果：
+        <p>
+        <table>
+            <tr>
+                <th>学号</th>
+                <th>姓名</th>
+            </tr>
+            <tr>
+                <td>001</td>
+                <td>张三</td>
+            </tr>
+            <tr>
+                <td>002</td>
+                <td>李四</td>
+            </tr>
+        </table>
+        </p>
+        <p>
+            如上面的代码，每有一行表格，就需要有一个tr标签，在tr标签内部，如果内容是表格的标题，就放在th标签里，如果内容是表格的数据，就放在td标签里。
+        </p>
+
+        <p>
+        <h3>Table标签的常用样式</h3>
+        </p>
+
+        <p>
+        <ol>
+            <p>
+                <li>table-layout</li>
+            <p>
+                table-layout用于设置表格中单元格、行和列的布局。
+            </p>
+            <ul>
+                <li>auto</li>
+                表格尺寸会根据内容自适应且等宽。
+                <p>
+                    <img src="./images/table-layout-auto.png" alt="auto" width="500">
+                </p>
+                <li>auto + 指定宽度</li>
+                表格尺寸会根据设定值显示，内容会自动换行以确保内容不溢出。
+                <p>
+                    <img src="./images/table-layout-auto+width.png" alt="auto+width" width="500">
+                </p>
+                <li>fix</li>
+                表格尺寸会根据内容自适应但不等宽。
+                <p>
+                    <img src="./images/table-layout-fix.png" alt="fix" width="500">
+                </p>
+                <li>fix + 指定宽度</li>
+                表格尺寸会根据设定值显示，内容如果超出宽度会溢出。
+                <p>
+                    <img src="./images/table-layout-fix+width.png" alt="fix+width" width="500">
+                </p>
+            </ul>
+            </p>
+            <p>
+                <li>border-collapse</li>
+            <p>
+                设定单元格之间是否公用边框。通过下面的效果展示，一目了然。
+            </p>
+            border-collapse的值为：collapse
+            <p>
+                <img src="./images/collapse.png" alt="collapse" width="500">
+            </p>
+            border-collapse的值为：separate
+            <p>
+                <img src="./images/separate.png" alt="separate" width="500">
+            </p>
+            </p>
+            <p>
+                <li>border-spacing</li>
+            <p>
+                border-spacing可以设置单元格边框的间隔。
+            </p>
+            <p>
+                <img src="./images/spacing.png" alt="separate" width="500">
+            </p>
+            </p>
+        </ol>
+        </p>
+    </section>
+</body>
+<footer>&copy;vFrank制作，页面太丑了，我已经吐了，希望您还好。</footer>
+
+</html>
