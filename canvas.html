@@ -16,12 +16,21 @@
         canvas.width = document.documentElement.clientWidth
         canvas.height = document.documentElement.clientHeight
         let ctx = canvas.getContext("2d");
+        ctx.fillStyle = "black";
+        ctx.strokeStyle = "black";
+        ctx.lineWidht = 8;
+        ctx.lineCap = "round";
+
+        function drawLine(x1, y1, x2, y2) {
+            ctx.beginPath();
+            ctx.moveTo(x1, y1);
+            ctx.lineto(x2, y2);
+            ctx.stroke();
+        }
 
         let painting = false
         let last
 
-        ctx.fillStyle = "black"
-        ctx.strokeStyle = "none"
 
         let isTouchDevice = 'ontouchstart' in document.documentElement;
 
