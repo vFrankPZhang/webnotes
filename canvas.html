@@ -16,27 +16,38 @@
     let ctx = canvas.getContext("2d");
 
     let painting = false
+    let last
 
     ctx.fillStyle = "black"
     ctx.strokeStyle = "none"
 
-    canvas.onmousedown = () => {
-        painting = true
-    }
+    let isTouchDevice = 'ontouchstart' in document.documentElement;
 
-    canvas.onmousemove = (e) => {
-        if (painting === true) {
+    if (isTouchDevice) {
+        canvas.ontouchmove = (e) => {
             ctx.beginPath();
-            ctx.arc(e.clientX, e.clientY, 10, 0, 2 * Math.PI);
+            ctx.arc(e.touches[0].clientX, e.touches[0].clientY, 5, 0, 2 * Math.PI);
             ctx.stroke();
             ctx.fill();
         }
-    }
+    } else {
+        canvas.onmousedown = () => {
+            painting = true
+        }
 
-    canvas.onmouseup = () => {
-        painting = false
-    }
+        canvas.onmousemove = (e) => {
+            if (painting === true) {
+                ctx.beginPath();
+                ctx.arc(e.clientX, e.clientY, 5, 0, 2 * Math.PI);
+                ctx.stroke();
+                ctx.fill();
+            }
+        }
 
+        canvas.onmouseup = () => {
+            painting = false
+        }
+    }
 </script>
 </body>
 </html>
